@@ -5,18 +5,19 @@
  */
 package pojo;
 
+import java.util.HashMap;
+
 /**
  *
- * @author Micka
+ * @author tiryboy
  */
 public class TypeEvenement {
     
     private int id;
     private String nom;
 
-    public TypeEvenement() {
-    }
-
+    public TypeEvenement() {}
+    
     public TypeEvenement(String nom) {
         this.nom = nom;
     }
@@ -24,6 +25,11 @@ public class TypeEvenement {
     public TypeEvenement(int id, String nom) {
         this.id = id;
         this.nom = nom;
+    }
+    
+    public void exchange(HashMap<String, String> fields) {
+        this.id = ( fields.containsKey( "id" ) ) ? Integer.parseInt( fields.get( "id" ) ) : null;
+        this.nom = ( fields.containsKey( "nom" ) ) ? fields.get( "nom" ) : null;
     }
 
     public int getId() {
@@ -46,6 +52,5 @@ public class TypeEvenement {
     public String toString() {
         return "TypeEvenement{" + "id=" + id + ", nom=" + nom + '}';
     }
-    
     
 }

@@ -1,32 +1,39 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package pojo;
 
 import java.util.LinkedHashMap;
 
+/**
+ *
+ * @author tiryboy
+ */
 public class Salle {
     
     private int id;
-    private int capacite;
     private String nom;
+    private int capacite;
 
-    public Salle() {
-    }
-
-    public Salle(int capacite, String nom) {
-        this.capacite = capacite;
-        this.nom = nom;
-    }
+    public Salle() {}
     
-    public Salle(int id, int capacite, String nom) {
+    public Salle(String nom, int capacite) {
+        this.nom = nom;
+        this.capacite = capacite;
+    }
+
+    public Salle(int id, String nom, int capacite) {
         this.id = id;
-        this.capacite = capacite;
         this.nom = nom;
+        this.capacite = capacite;
     }
     
-    public void exchange( LinkedHashMap <String, String> data) {
+    public void exchange(LinkedHashMap <String, String> data) {
         this.id = ( data.containsKey( "id" ) ) ? Integer.parseInt( data.get( "id" ) ) : null;
         this.nom = ( data.containsKey( "nom" ) ) ? data.get( "nom" ) : null;
-        this.capacite = ( data.containsKey( "capacite" ) ) ? Integer.parseInt( data.get( "nom" ) ) : null;          
+        this.capacite = ( data.containsKey( "capacite" ) ) ? Integer.parseInt( data.get( "capacite" ) ) : null;
     }
 
     public int getId() {
@@ -37,14 +44,6 @@ public class Salle {
         this.id = id;
     }
 
-    public int getCapacite() {
-        return capacite;
-    }
-
-    public void setCapacite(int capacite) {
-        this.capacite = capacite;
-    }
-
     public String getNom() {
         return nom;
     }
@@ -53,8 +52,16 @@ public class Salle {
         this.nom = nom;
     }
 
+    public int getCapacite() {
+        return capacite;
+    }
+
+    public void setCapacite(int capacite) {
+        this.capacite = capacite;
+    }
+
     @Override
     public String toString() {
-        return "Salle{" + "id=" + id + ", capacite=" + capacite + ", nom=" + nom + '}';
+        return "Salle{" + "id=" + id + ", nom=" + nom + ", capacite=" + capacite + '}';
     }
 }

@@ -5,17 +5,20 @@
  */
 package app;
 
+import graphic.*;
+
 /**
  *
- * @author Micka
+ * @author tiryboy
  */
-public class Application {
+public class App {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        new AuthentificationWD().setVisible( true );
     }
     
 }

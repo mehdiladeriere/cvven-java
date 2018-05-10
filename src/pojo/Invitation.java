@@ -5,21 +5,28 @@
  */
 package pojo;
 
+import dao.*;
+import java.util.HashMap;
+
 /**
  *
- * @author Micka
+ * @author Philippe
  */
 public class Invitation {
     
     private Evenement evenement;
     private Participant participant;
 
-    public Invitation() {
-    }
+    public Invitation() {}
 
     public Invitation(Evenement evenement, Participant participant) {
         this.evenement = evenement;
         this.participant = participant;
+    }
+    
+    public void exchange(HashMap<String, String> fields) {
+        this.evenement = ( fields.containsKey( "evenement" ) ) ? new EvenementDAO().find( Integer.parseInt( fields.get( "evenement" ) ) ) : null;
+        this.participant = ( fields.containsKey( "participant" ) ) ? new ParticipantDAO().find( Integer.parseInt( fields.get( "participant" ) ) ) : null;
     }
 
     public Evenement getEvenement() {
@@ -42,6 +49,4 @@ public class Invitation {
     public String toString() {
         return "Invitation{" + "evenement=" + evenement + ", participant=" + participant + '}';
     }
-
-   
 }

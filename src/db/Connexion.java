@@ -11,33 +11,37 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Micka
+ * @author tiryboy
  */
 public class Connexion {
     
-    private static String url = "jdbc:postgresql://chamilo.rene-descartes.fr/mehdijava";
+    private static String url = "jdbc:postgresql://chamilo.rene-descartes.fr/groupe2fjava";
     private static String user = "groupe2f";
     private static String passwd = "mdp2f2017";
     
-        /* Objet unique de connexion */
-        private static Connection connect;
+    /* Objet unique de connexion */
+    private static Connection connect;
+    
+    /* Méthode de connexion à la base de données */
+    public static Connection getInstance() {
         
-        /* Methode de connexion à la base de données */ 
-        public static Connection getInstance() {
+        if ( connect == null ) {
             
-            if ( connect == null ) {
+            try {
                 
-                try {
-                    
-                    connect = DriverManager.getConnection(url, user, passwd);
-                    
-                } catch ( SQLException e ) {
-                    
-                    System.out.println( "SQL erreur : " + e.getMessage() );
-                    e.printStackTrace();
-                }
+                connect = DriverManager.getConnection(url, user, passwd);
+                
+            } catch ( SQLException e ) {
+                
+                System.out.println( "SQL erreur : " + e.getMessage() );
+                e.printStackTrace();
+                
             }
             
-            return connect;
         }
+        
+        return connect;
+        
+    }
+    
 }
