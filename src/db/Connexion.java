@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class Connexion {
     
-    private static String url = "jdbc:postgresql://chamilo.rene-descartes.fr/groupe2fjava";
+    private static String url = "jdbc:postgresql://chamilo.rene-descartes.fr/mehdijava";
     private static String user = "groupe2f";
     private static String passwd = "mdp2f2017";
     
